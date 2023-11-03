@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <title>Blogify</title>
+
+</head>
+<body>
+    <%- include("./partials/nav") %>
+    <% if (locals.blog) { %>
+        <div class="container">
+            <h2><%= blog.title %></h2>
+            <img src="<%= blog.blogImageURL %>" alt="" width="700px">
+            <pre><%= blog.body %></pre>
+            <img src="<%= blog.createdBy.profileImage %>" alt="" width="50px" style="display: inline-block;" >
+            <h6 style="display: inline-block;">Created By- <span style="text-decoration: underline; font-variant: small-caps;font-weight: bold;"><%= blog.createdBy.fullName %></span></h6>
+        </div>
+    <% } %>
+    <div class="container">
+    <h2>Comments</h2>
+    <% if (locals.user) { %>
+        <form action="/blog/addComment/<%= blog._id %>" method="post">
+            <input type="text" placeholder="Enter a Comment" name="content" style="border: none; border-bottom: 2px;display: inline-block;">
+            <button type="submit" class="btn btn-sm btn-primary">Comment</button>
+        </form>
+    
+    <% } %>
+    <% if (locals.comments) { %>
+        <% comments.forEach(comment => { %>
+          <!-- <img src="<%= blog.createdBy.profileImage %>" alt="" width="50px" style="display: inline-block;" > -->
+          <p style="display: inline-block;"><%= comment.content %>||</p>
+          <h6 style="display: inline-block;">Created By- <span style="text-decoration: underline; font-variant: small-caps;font-weight: bold;"><%= blog.createdBy.fullName %></span></h6>
+        <% }) %>
+     
+    <% } %>
+</div>
+    <%- include("./partials/script") %>
+</body>
+</html>

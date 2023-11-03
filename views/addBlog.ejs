@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <title>Blogify</title>
+
+</head>
+<body>
+    <%- include("./partials/nav") %>
+    <form action="/blog/add" method="post" enctype="multipart/form-data">
+        <div class="row mb-3">
+            <label for="image" class="col-sm-2 col-form-label">Upload image</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control" id="inputEmail3" name="blogImageURL">
+            </div>
+          </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" name="title">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="body" class="col-sm-2 col-form-label">Body</label>
+          <div class="col-sm-10">
+            <textarea name="body" id="body" class="form-control"></textarea>
+          </div>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
+    <%- include("./partials/script") %>
+</body>
+</html>
