@@ -1,7 +1,7 @@
-const { verifyToken } = require("../services/authentication");
+import { verifyToken } from "../services/authentication.js";
 
 
-function checkCookie(cookieName) {
+export function checkCookie(cookieName) {
     return (req, res, next) => {
         const cookie = req.cookies[cookieName];
         if(!cookie) return next();
@@ -16,7 +16,3 @@ function checkCookie(cookieName) {
     }
 }
 
-
-module.exports = {
-    checkCookie
-}

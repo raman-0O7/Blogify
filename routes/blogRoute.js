@@ -1,7 +1,7 @@
-const {Router} = require("express");
-const multer = require("multer")
-const Blog = require("../models/blogModel");
-const Comment = require("../models/commentModel");
+import {Router} from "express";
+import multer from "multer";
+import Blog from "../models/blogModel.js";
+import Comment from "../models/commentModel.js";
 const router = Router();
 
 
@@ -56,4 +56,4 @@ router.post("/addComment/:id", async (req,res)=> {
 
 
 
-module.exports = router;
+export default router;

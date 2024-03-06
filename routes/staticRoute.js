@@ -1,5 +1,5 @@
-const {Router} = require("express");
-const Blog = require("../models/blogModel");
+import {Router} from "express";
+import Blog from "../models/blogModel.js";
 const router = Router();
 
 
@@ -27,4 +27,4 @@ router.get("/addBlog", (req,res)=>  res.render("addBlog", {
 
 
 
-module.exports = router;
+export default router;
